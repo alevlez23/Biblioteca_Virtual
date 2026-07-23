@@ -1,0 +1,631 @@
+/*
+ * Apariencia propia del catálogo de libros: tarjetas, formulario, mensajes,
+ * tabla, etiquetas de disponibilidad y adaptación a pantallas pequeñas.
+ */
+
+.libros-modulo {
+  display: grid;
+  gap: 20px;
+}
+
+.libros-modulo .welcome-card {
+  margin-top: 34px;
+}
+
+/* Tarjetas con totales del catálogo e inventario. */
+.libros-resumen {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 17px;
+}
+
+.libros-resumen article {
+  min-width: 0;
+  padding: 22px;
+
+  border: 1px solid var(--border);
+  border-radius: 17px;
+
+  background: var(--panel);
+
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.08);
+}
+
+.libros-resumen span,
+.libros-resumen strong,
+.libros-resumen small {
+  display: block;
+}
+
+.libros-resumen span {
+  color: var(--muted);
+  font-size: 0.75rem;
+}
+
+.libros-resumen strong {
+  margin: 12px 0;
+  color: var(--text);
+  font-size: 2rem;
+}
+
+.libros-resumen small {
+  color: #b5a5ff;
+  font-size: 0.7rem;
+}
+
+/* Mensajes de éxito, error o información. */
+.libros-mensaje {
+  display: grid;
+  grid-template-columns: 28px minmax(0, 1fr) 30px;
+  align-items: center;
+  gap: 10px;
+
+  padding: 13px 16px;
+
+  border: 1px solid var(--border);
+  border-radius: 13px;
+
+  background: var(--panel);
+}
+
+.libros-mensaje > span {
+  width: 26px;
+  height: 26px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 50%;
+  font-weight: 900;
+}
+
+.libros-mensaje p {
+  margin: 0;
+  font-size: 0.8rem;
+  line-height: 1.45;
+}
+
+.libros-mensaje button {
+  width: 30px;
+  height: 30px;
+
+  display: grid;
+  place-items: center;
+
+  border: 0;
+  border-radius: 8px;
+
+  background: transparent;
+  color: var(--muted);
+
+  font-size: 1.3rem;
+}
+
+.libros-mensaje button:hover {
+  background: rgba(143, 165, 255, 0.08);
+  color: var(--text);
+}
+
+.libros-mensaje--correcto {
+  border-color: rgba(102, 228, 163, 0.3);
+  color: var(--success);
+}
+
+.libros-mensaje--correcto > span {
+  background: rgba(102, 228, 163, 0.12);
+}
+
+.libros-mensaje--error {
+  border-color: rgba(255, 115, 142, 0.3);
+  color: #ff9caf;
+}
+
+.libros-mensaje--error > span {
+  background: rgba(255, 115, 142, 0.12);
+}
+
+.libros-mensaje--informacion {
+  border-color: rgba(92, 225, 230, 0.25);
+  color: var(--cyan);
+}
+
+.libros-mensaje--informacion > span {
+  background: rgba(92, 225, 230, 0.1);
+}
+
+/* Rejilla principal: formulario a la izquierda y catálogo a la derecha. */
+.libros-contenido {
+  display: grid;
+
+  grid-template-columns:
+    minmax(340px, 0.85fr)
+    minmax(700px, 1.9fr);
+
+  gap: 20px;
+  align-items: start;
+}
+
+.libros-panel {
+  min-width: 0;
+
+  border: 1px solid var(--border);
+  border-radius: 20px;
+
+  background: var(--panel);
+
+  overflow: hidden;
+
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.08);
+}
+
+.libros-formulario-panel {
+  position: sticky;
+  top: 20px;
+}
+
+.libros-panel-header {
+  min-height: 82px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+
+  padding: 20px 22px;
+
+  border-bottom: 1px solid var(--border);
+}
+
+.libros-panel-header h3 {
+  margin: 6px 0 0;
+  font-size: 1.08rem;
+  letter-spacing: -0.02em;
+}
+
+/* Campos y acciones para crear o editar un libro. */
+.libros-formulario {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+
+  padding: 22px;
+}
+
+.libros-formulario label {
+  display: grid;
+  gap: 8px;
+}
+
+.libros-formulario label > span {
+  color: #dce3fa;
+  font-size: 0.76rem;
+  font-weight: 700;
+}
+
+.libros-formulario input {
+  width: 100%;
+  min-width: 0;
+  min-height: 50px;
+
+  padding: 0 14px;
+
+  border: 1px solid rgba(143, 165, 255, 0.2);
+  border-radius: 12px;
+  outline: 0;
+
+  background: rgba(18, 27, 53, 0.72);
+  color: var(--text);
+
+  transition:
+    border-color 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.libros-formulario input::placeholder,
+.libros-buscador input::placeholder {
+  color: rgba(152, 165, 198, 0.6);
+}
+
+.libros-formulario input:focus {
+  border-color: rgba(92, 225, 230, 0.65);
+
+  box-shadow:
+    0 0 0 4px rgba(92, 225, 230, 0.07);
+}
+
+.libros-formulario input:disabled {
+  opacity: 0.6;
+}
+
+.libros-campo-completo {
+  grid-column: 1 / -1;
+}
+
+.libros-formulario-acciones {
+  display: flex;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.libros-listado-panel {
+  min-width: 0;
+}
+
+.libros-buscador {
+  min-height: 48px;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  margin: 18px 22px;
+  padding: 0 14px;
+
+  border: 1px solid rgba(143, 165, 255, 0.2);
+  border-radius: 12px;
+
+  background: rgba(18, 27, 53, 0.72);
+
+  transition:
+    border-color 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.libros-buscador:focus-within {
+  border-color: rgba(92, 225, 230, 0.65);
+
+  box-shadow:
+    0 0 0 4px rgba(92, 225, 230, 0.07);
+}
+
+.libros-buscador > span {
+  color: var(--cyan);
+  font-size: 1.2rem;
+}
+
+.libros-buscador input {
+  width: 100%;
+  min-width: 0;
+  min-height: 44px;
+
+  border: 0;
+  outline: 0;
+
+  background: transparent;
+  color: var(--text);
+}
+
+.libros-buscador button {
+  padding: 7px;
+
+  border: 0;
+  border-radius: 7px;
+
+  background: transparent;
+  color: var(--cyan);
+
+  font-size: 0.72rem;
+  font-weight: 800;
+}
+
+.libros-buscador button:hover {
+  background: rgba(92, 225, 230, 0.08);
+}
+
+/* Tabla del catálogo y estados de disponibilidad. */
+.libros-tabla-contenedor {
+  min-height: 320px;
+  overflow-x: auto;
+}
+
+.libros-tabla {
+  width: 100%;
+  min-width: 1050px;
+
+  border-collapse: collapse;
+}
+
+.libros-tabla th,
+.libros-tabla td {
+  padding: 15px 17px;
+
+  border-bottom: 1px solid var(--border);
+
+  text-align: left;
+  vertical-align: middle;
+}
+
+.libros-tabla th {
+  background: rgba(7, 11, 24, 0.25);
+
+  color: var(--muted);
+
+  font-size: 0.63rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.libros-tabla td {
+  font-size: 0.75rem;
+}
+
+.libros-tabla tbody tr {
+  transition: background 160ms ease;
+}
+
+.libros-tabla tbody tr:hover {
+  background: rgba(92, 225, 230, 0.035);
+}
+
+.libro-identidad {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+}
+
+.libro-identidad > span {
+  width: 39px;
+  height: 46px;
+
+  flex: 0 0 auto;
+
+  display: grid;
+  place-items: center;
+
+  border: 1px solid rgba(142, 115, 255, 0.3);
+  border-radius: 8px 12px 12px 8px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(142, 115, 255, 0.18),
+      rgba(92, 225, 230, 0.08)
+    );
+
+  color: #c7bbff;
+  font-weight: 900;
+
+  box-shadow:
+    inset 4px 0 0 rgba(92, 225, 230, 0.25);
+}
+
+.libro-identidad strong,
+.libro-identidad small,
+.libro-clasificacion span,
+.libro-clasificacion small,
+.libro-existencias strong,
+.libro-existencias small {
+  display: block;
+}
+
+.libro-identidad strong {
+  max-width: 230px;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  color: var(--text);
+}
+
+.libro-identidad small,
+.libro-clasificacion small,
+.libro-existencias small,
+.libro-fecha {
+  margin-top: 4px;
+
+  color: var(--muted);
+  font-size: 0.64rem;
+}
+
+.libro-clasificacion span {
+  max-width: 160px;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  color: #dce3fa;
+  font-weight: 700;
+}
+
+.libro-existencias strong {
+  color: var(--cyan);
+  font-size: 1rem;
+}
+
+.libro-disponibilidad {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+
+  padding: 6px 9px;
+
+  border-radius: 999px;
+
+  font-size: 0.62rem;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.libro-disponibilidad::before {
+  content: "";
+
+  width: 6px;
+  height: 6px;
+
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.libro-disponibilidad--disponible {
+  border: 1px solid rgba(102, 228, 163, 0.25);
+  background: rgba(102, 228, 163, 0.08);
+  color: var(--success);
+}
+
+.libro-disponibilidad--parcial {
+  border: 1px solid rgba(255, 198, 109, 0.3);
+  background: rgba(255, 198, 109, 0.08);
+  color: var(--warning);
+}
+
+.libro-disponibilidad--agotado {
+  border: 1px solid rgba(255, 115, 142, 0.3);
+  background: rgba(255, 115, 142, 0.08);
+  color: #ff9caf;
+}
+
+.libro-disponibilidad--inactivo {
+  border: 1px solid rgba(152, 165, 198, 0.25);
+  background: rgba(152, 165, 198, 0.07);
+  color: var(--muted);
+}
+
+.libro-fecha {
+  display: block;
+  max-width: 130px;
+}
+
+.libro-acciones {
+  display: flex;
+  gap: 7px;
+}
+
+.libro-acciones button {
+  min-height: 34px;
+  padding: 0 10px;
+
+  border-radius: 9px;
+  background: transparent;
+
+  font-size: 0.66rem;
+  font-weight: 800;
+
+  transition:
+    border-color 160ms ease,
+    background 160ms ease,
+    opacity 160ms ease;
+}
+
+.libro-acciones button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.libro-acciones .accion-editar {
+  border: 1px solid rgba(92, 225, 230, 0.25);
+  color: var(--cyan);
+}
+
+.libro-acciones .accion-editar:hover:not(:disabled) {
+  border-color: rgba(92, 225, 230, 0.5);
+  background: rgba(92, 225, 230, 0.08);
+}
+
+.libro-acciones .accion-desactivar {
+  border: 1px solid rgba(255, 115, 142, 0.25);
+  color: #ff9caf;
+}
+
+.libro-acciones .accion-desactivar:hover:not(:disabled) {
+  border-color: rgba(255, 115, 142, 0.5);
+  background: rgba(255, 115, 142, 0.08);
+}
+
+.libro-acciones .accion-activar {
+  border: 1px solid rgba(102, 228, 163, 0.25);
+  color: var(--success);
+}
+
+.libro-acciones .accion-activar:hover:not(:disabled) {
+  border-color: rgba(102, 228, 163, 0.5);
+  background: rgba(102, 228, 163, 0.08);
+}
+
+.libros-estado-vacio {
+  min-height: 320px;
+
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 10px;
+
+  padding: 30px;
+
+  color: var(--muted);
+  text-align: center;
+}
+
+.libros-estado-vacio strong {
+  color: #dce3fa;
+}
+
+.libros-estado-vacio p {
+  max-width: 380px;
+  margin: 0;
+
+  font-size: 0.78rem;
+  line-height: 1.5;
+}
+
+.libros-listado-footer {
+  padding: 14px 22px;
+
+  background: rgba(7, 11, 24, 0.18);
+  color: var(--muted);
+
+  font-size: 0.68rem;
+}
+
+/* Ajustes responsive del catálogo. */
+@media (max-width: 1400px) {
+  .libros-contenido {
+    grid-template-columns: 1fr;
+  }
+
+  .libros-formulario-panel {
+    position: static;
+  }
+}
+
+@media (max-width: 1100px) {
+  .libros-resumen {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  .libros-resumen {
+    grid-template-columns: 1fr;
+  }
+
+  .libros-listado-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .libros-formulario {
+    grid-template-columns: 1fr;
+  }
+
+  .libros-campo-completo {
+    grid-column: auto;
+  }
+
+  .libros-formulario-acciones {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 520px) {
+  .libros-panel-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .libros-buscador {
+    margin: 15px;
+  }
+}

@@ -1,0 +1,184 @@
+/*
+ * Ajustes que unifican colores, bordes y superficies entre préstamos e
+ * historial para mantener una misma identidad visual.
+ */
+
+/*
+ * Tema uniforme para Biblioteca Virtual.
+ * Iguala Préstamos e Historial con los colores
+ * utilizados en la pantalla de Inicio.
+ */
+
+/* ==============================
+   PRÉSTAMOS
+   ============================== */
+
+.prestamos-module {
+  background: transparent;
+}
+
+.prestamos-hero {
+  border-color: var(--border) !important;
+  background: var(--panel) !important;
+
+  box-shadow:
+    0 18px 44px rgba(0, 0, 0, 0.12) !important;
+}
+
+.prestamo-stat-card {
+  border-color: var(--border) !important;
+  background: var(--panel) !important;
+
+  box-shadow:
+    0 18px 44px rgba(0, 0, 0, 0.1) !important;
+}
+
+.prestamos-card {
+  border-color: var(--border) !important;
+  background: var(--panel) !important;
+
+  box-shadow:
+    0 18px 44px rgba(0, 0, 0, 0.12) !important;
+}
+
+.prestamos-chip {
+  border-color: rgba(102, 228, 163, 0.26) !important;
+  background: rgba(102, 228, 163, 0.07) !important;
+}
+
+.prestamo-form .field input,
+.prestamo-form .field select,
+.prestamo-form .field textarea,
+.prestamos-filtros input,
+.prestamos-filtros select {
+  border-color: rgba(143, 165, 255, 0.2) !important;
+  background: rgba(18, 27, 53, 0.72) !important;
+}
+
+.prestamo-form .field input:focus,
+.prestamo-form .field select:focus,
+.prestamo-form .field textarea:focus,
+.prestamos-filtros input:focus,
+.prestamos-filtros select:focus {
+  border-color: rgba(92, 225, 230, 0.65) !important;
+
+  box-shadow:
+    0 0 0 4px rgba(92, 225, 230, 0.07) !important;
+}
+
+.tabla-contenedor {
+  border-color: var(--border) !important;
+  background: rgba(7, 11, 24, 0.22) !important;
+}
+
+.prestamos-tabla thead th {
+  border-color: var(--border) !important;
+  background: rgba(7, 11, 24, 0.28) !important;
+}
+
+.prestamos-tabla tbody tr:hover {
+  background: rgba(92, 225, 230, 0.035) !important;
+}
+
+.estado-vacio {
+  border-color: rgba(143, 165, 255, 0.18) !important;
+  background: rgba(7, 11, 24, 0.18) !important;
+}
+
+/* ==============================
+   HISTORIAL
+   ============================== */
+
+.historial-modulo {
+  background: transparent;
+}
+
+.historial-hero {
+  border-color: var(--border) !important;
+  background: var(--panel) !important;
+
+  box-shadow:
+    0 18px 44px rgba(0, 0, 0, 0.12) !important;
+}
+
+.historial-estadisticas article {
+  border-color: var(--border) !important;
+  background: var(--panel) !important;
+
+  box-shadow:
+    0 18px 44px rgba(0, 0, 0, 0.1) !important;
+}
+
+.historial-panel {
+  border-color: var(--border) !important;
+  background: var(--panel) !important;
+
+  box-shadow:
+    0 18px 44px rgba(0, 0, 0, 0.12) !important;
+}
+
+.historial-grafico-panel {
+  background: var(--panel) !important;
+}
+
+.historial-chip {
+  border-color: rgba(102, 228, 163, 0.26) !important;
+  background: rgba(102, 228, 163, 0.07) !important;
+}
+
+.historial-panel-header {
+  border-bottom-color: var(--border) !important;
+}
+
+.historial-filtro input,
+.historial-filtro select {
+  border-color: rgba(143, 165, 255, 0.2) !important;
+  background: rgba(18, 27, 53, 0.72) !important;
+}
+
+.historial-filtro input:focus,
+.historial-filtro select:focus {
+  border-color: rgba(92, 225, 230, 0.65) !important;
+
+  box-shadow:
+    0 0 0 4px rgba(92, 225, 230, 0.07) !important;
+}
+
+.historial-tabla thead th {
+  background: rgba(7, 11, 24, 0.28) !important;
+}
+
+.historial-tabla tbody tr:hover {
+  background: rgba(92, 225, 230, 0.035) !important;
+}
+
+.historial-vacio {
+  background: rgba(7, 11, 24, 0.18) !important;
+}
+
+/* ==============================
+   TEXTOS Y BORDES COMPARTIDOS
+   ============================== */
+
+.prestamos-hero,
+.prestamo-stat-card,
+.prestamos-card,
+.historial-hero,
+.historial-estadisticas article,
+.historial-panel {
+  color: var(--text);
+}
+
+.prestamos-hero p,
+.historial-hero p,
+.historial-grafico-panel header p,
+.prestamo-stat-card span,
+.historial-estadisticas span {
+  color: var(--muted);
+}
+
+.prestamos-kicker,
+.card-kicker,
+.historial-kicker {
+  color: var(--cyan);
+}

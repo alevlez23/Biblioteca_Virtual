@@ -1,0 +1,18 @@
+VALIDACIÓN DEL CÓDIGO COMENTADO
+================================
+
+- Se verificó la sintaxis PHP de los archivos del directorio app en los cuatro microservicios.
+- Se verificó la sintaxis JavaScript y JSX de los 12 archivos del frontend mediante Babel Parser.
+- Se excluyeron .env, node_modules, vendor, dist, .git y datos temporales.
+- No se incluyeron contraseñas, claves JWT ni tokens reales.
+- Los comentarios explican propósito, validaciones, decisiones y flujo sin narrar cada instrucción obvia.
+
+IMPORTANTE
+----------
+La compilación completa debe ejecutarse en el equipo Windows del proyecto después de instalar o conservar las dependencias:
+
+cd /d "C:\Users\evele\Desktop\Biblioteca-Virtual\frontend"
+npm install
+npm run build
+
+Para cada microservicio, usar composer install cuando vendor no esté disponible.

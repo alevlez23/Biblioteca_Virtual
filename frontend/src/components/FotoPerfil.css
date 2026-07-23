@@ -1,0 +1,102 @@
+/*
+ * Integra la fotografía de la administradora dentro de los avatares del login
+ * y de la barra superior. El recorte circular se logra con background-size y
+ * overflow, sin cambiar la estructura JSX.
+ */
+
+/*
+ * Fotografía de perfil para Biblioteca Virtual.
+ * Se utiliza en el login y en la barra superior.
+ */
+
+.avatar,
+.avatar--small {
+  position: relative !important;
+
+  flex: 0 0 auto !important;
+
+  display: block !important;
+
+  overflow: hidden !important;
+
+  border:
+    1px solid rgba(
+      92,
+      225,
+      230,
+      0.68
+    ) !important;
+
+  border-radius: 50% !important;
+
+  background-color:
+    rgba(
+      15,
+      27,
+      61,
+      0.95
+    ) !important;
+
+  background-image:
+    url("/perfil.jpg?v=10") !important;
+
+  background-repeat:
+    no-repeat !important;
+
+  background-position:
+    center 35% !important;
+
+  background-size:
+    cover !important;
+
+  box-shadow:
+    0 0 0 4px
+      rgba(92, 225, 230, 0.05),
+    0 12px 28px
+      rgba(0, 0, 0, 0.3) !important;
+}
+
+/*
+ * Oculta el dibujo blanco anterior.
+ */
+.avatar svg,
+.avatar--small svg {
+  display: none !important;
+}
+
+/*
+ * Foto grande del inicio de sesión.
+ */
+.login-content > .avatar {
+  width: 72px !important;
+  height: 72px !important;
+
+  margin-left: auto !important;
+  margin-right: auto !important;
+
+  background-position:
+    center 35% !important;
+
+  box-shadow:
+    0 0 0 5px
+      rgba(92, 225, 230, 0.06),
+    0 15px 34px
+      rgba(0, 0, 0, 0.34) !important;
+}
+
+/*
+ * Foto pequeña de la barra superior.
+ */
+.profile .avatar--small {
+  width: 44px !important;
+  height: 44px !important;
+
+  background-position:
+    center 35% !important;
+
+  box-shadow:
+    0 0 0 3px
+      rgba(92, 225, 230, 0.04),
+    0 8px 20px
+      rgba(0, 0, 0, 0.25) !important;
+}

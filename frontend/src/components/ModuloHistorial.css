@@ -1,0 +1,572 @@
+/*
+ * Apariencia del historial: filtros, tarjetas estadísticas, contenedores de
+ * Chart.js, tabla de movimientos y reglas responsive.
+ */
+
+.historial-modulo {
+  display: grid;
+  gap: 22px;
+}
+
+/* Cabecera del reporte y estado de actualización. */
+.historial-hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+
+  padding: 28px 30px;
+
+  border: 1px solid rgba(92, 225, 230, 0.17);
+  border-radius: 24px;
+
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(132, 111, 255, 0.18),
+      transparent 34%
+    ),
+    linear-gradient(
+      135deg,
+      rgba(8, 18, 59, 0.97),
+      rgba(5, 13, 40, 0.94)
+    );
+
+  box-shadow:
+    0 20px 45px rgba(0, 0, 0, 0.24);
+}
+
+.historial-hero h2 {
+  margin: 7px 0 10px;
+
+  color: #f6f8ff;
+  font-size: 2rem;
+  letter-spacing: -0.04em;
+}
+
+.historial-hero p {
+  max-width: 720px;
+  margin: 0;
+
+  color: #a9b7d5;
+  line-height: 1.65;
+}
+
+.historial-kicker {
+  display: inline-block;
+
+  color: #5ce1e6;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.historial-chip {
+  flex: 0 0 auto;
+
+  padding: 11px 17px;
+
+  border: 1px solid rgba(102, 228, 163, 0.24);
+  border-radius: 999px;
+
+  background: rgba(102, 228, 163, 0.08);
+  color: #78efb2;
+
+  font-size: 0.78rem;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.historial-alerta {
+  padding: 14px 17px;
+
+  border-radius: 14px;
+
+  font-size: 0.86rem;
+  font-weight: 600;
+}
+
+.historial-alerta--correcta {
+  border: 1px solid rgba(102, 228, 163, 0.25);
+  background: rgba(102, 228, 163, 0.08);
+  color: #83efb8;
+}
+
+.historial-alerta--error {
+  border: 1px solid rgba(255, 115, 142, 0.25);
+  background: rgba(255, 115, 142, 0.08);
+  color: #ff9daf;
+}
+
+/* Tarjetas recalculadas según los filtros activos. */
+.historial-estadisticas {
+  display: grid;
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+  gap: 17px;
+}
+
+.historial-estadisticas article {
+  padding: 22px;
+
+  border: 1px solid rgba(143, 165, 255, 0.15);
+  border-radius: 19px;
+
+  background: rgba(8, 18, 54, 0.87);
+
+  box-shadow:
+    0 15px 34px rgba(0, 0, 0, 0.17);
+}
+
+.historial-estadisticas span,
+.historial-estadisticas strong,
+.historial-estadisticas small {
+  display: block;
+}
+
+.historial-estadisticas span {
+  color: #99a9ca;
+  font-size: 0.77rem;
+}
+
+.historial-estadisticas strong {
+  margin: 12px 0 10px;
+
+  color: #ffffff;
+  font-size: 2rem;
+}
+
+.historial-estadisticas small {
+  color: #7be4f0;
+  font-size: 0.69rem;
+}
+
+/* Superficie común para filtros, gráficos y tabla. */
+.historial-panel {
+  min-width: 0;
+
+  border: 1px solid rgba(143, 165, 255, 0.15);
+  border-radius: 22px;
+
+  background: rgba(6, 15, 46, 0.89);
+
+  overflow: hidden;
+
+  box-shadow:
+    0 18px 40px rgba(0, 0, 0, 0.2);
+}
+
+.historial-panel-header {
+  min-height: 84px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+
+  padding: 20px 23px;
+
+  border-bottom:
+    1px solid rgba(143, 165, 255, 0.12);
+}
+
+.historial-panel-header h3,
+.historial-grafico-panel h3 {
+  margin: 6px 0 0;
+
+  color: #f3f6ff;
+  font-size: 1.15rem;
+}
+
+.historial-header-acciones {
+  display: flex;
+  gap: 10px;
+}
+
+.historial-boton-principal,
+.historial-boton-secundario {
+  min-height: 40px;
+  padding: 0 15px;
+
+  border-radius: 11px;
+
+  font-size: 0.72rem;
+  font-weight: 800;
+
+  transition:
+    transform 160ms ease,
+    border-color 160ms ease,
+    background 160ms ease;
+}
+
+.historial-boton-principal {
+  border: 0;
+
+  background:
+    linear-gradient(
+      90deg,
+      #58dae9,
+      #8a76ff
+    );
+
+  color: #061124;
+}
+
+.historial-boton-secundario {
+  border:
+    1px solid rgba(143, 165, 255, 0.26);
+
+  background: transparent;
+  color: #d9e2fa;
+}
+
+.historial-boton-principal:hover:not(:disabled),
+.historial-boton-secundario:hover:not(:disabled) {
+  transform: translateY(-1px);
+}
+
+.historial-boton-secundario:hover:not(:disabled) {
+  background: rgba(143, 165, 255, 0.08);
+}
+
+.historial-boton-principal:disabled,
+.historial-boton-secundario:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* Controles de búsqueda, relaciones, estado y fechas. */
+.historial-filtros {
+  display: grid;
+
+  grid-template-columns:
+    minmax(220px, 1.4fr)
+    repeat(5, minmax(150px, 1fr));
+
+  gap: 16px;
+
+  padding: 22px;
+}
+
+.historial-filtro {
+  display: grid;
+  gap: 8px;
+}
+
+.historial-filtro > span {
+  color: #d8e2f8;
+  font-size: 0.73rem;
+  font-weight: 700;
+}
+
+.historial-filtro input,
+.historial-filtro select {
+  width: 100%;
+  min-width: 0;
+  min-height: 48px;
+
+  padding: 0 13px;
+
+  border:
+    1px solid rgba(143, 165, 255, 0.2);
+  border-radius: 12px;
+  outline: 0;
+
+  background: rgba(10, 22, 62, 0.9);
+  color: #eff4ff;
+
+  transition:
+    border-color 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.historial-filtro input::placeholder {
+  color: #7789ae;
+}
+
+.historial-filtro input:focus,
+.historial-filtro select:focus {
+  border-color: rgba(92, 225, 230, 0.65);
+
+  box-shadow:
+    0 0 0 4px rgba(92, 225, 230, 0.08);
+}
+
+/* Rejilla que contiene los dos canvas de Chart.js. */
+.historial-graficos {
+  display: grid;
+  grid-template-columns:
+    minmax(320px, 0.8fr)
+    minmax(480px, 1.4fr);
+  gap: 20px;
+}
+
+.historial-grafico-panel {
+  padding: 23px;
+}
+
+.historial-grafico-panel header p {
+  margin: 9px 0 0;
+
+  color: #96a7ca;
+  font-size: 0.78rem;
+  line-height: 1.5;
+}
+
+.historial-grafico-contenedor {
+  position: relative;
+
+  width: 100%;
+  height: 290px;
+
+  margin-top: 18px;
+}
+
+.historial-resultados {
+  color: #9caaca;
+  font-size: 0.74rem;
+  white-space: nowrap;
+}
+
+/* Tabla detallada del historial de movimientos. */
+.historial-tabla-contenedor {
+  overflow-x: auto;
+}
+
+.historial-tabla {
+  width: 100%;
+  min-width: 1250px;
+
+  border-collapse: collapse;
+}
+
+.historial-tabla th,
+.historial-tabla td {
+  padding: 15px 16px;
+
+  border-bottom:
+    1px solid rgba(143, 165, 255, 0.1);
+
+  text-align: left;
+  vertical-align: middle;
+}
+
+.historial-tabla th {
+  background: rgba(5, 12, 35, 0.55);
+  color: #7ee6ef;
+
+  font-size: 0.63rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.historial-tabla td {
+  color: #dce5f8;
+  font-size: 0.73rem;
+}
+
+.historial-tabla tbody tr {
+  transition: background 160ms ease;
+}
+
+.historial-tabla tbody tr:hover {
+  background: rgba(92, 225, 230, 0.035);
+}
+
+.historial-id {
+  color: #69dfe8 !important;
+  font-weight: 900;
+}
+
+.historial-entidad strong,
+.historial-entidad small {
+  display: block;
+}
+
+.historial-entidad strong {
+  max-width: 220px;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  color: #f3f6ff;
+}
+
+.historial-entidad small {
+  max-width: 220px;
+  margin-top: 4px;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  color: #8799bd;
+  font-size: 0.65rem;
+}
+
+.historial-estado {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+
+  padding: 7px 10px;
+
+  border-radius: 999px;
+
+  font-size: 0.61rem;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+}
+
+.historial-estado::before {
+  content: "";
+
+  width: 6px;
+  height: 6px;
+
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.historial-estado--activo {
+  border:
+    1px solid rgba(92, 225, 230, 0.25);
+
+  background: rgba(92, 225, 230, 0.08);
+  color: #5ce1e6;
+}
+
+.historial-estado--devuelto {
+  border:
+    1px solid rgba(102, 228, 163, 0.25);
+
+  background: rgba(102, 228, 163, 0.08);
+  color: #66e4a3;
+}
+
+.historial-estado--vencido {
+  border:
+    1px solid rgba(255, 167, 93, 0.27);
+
+  background: rgba(255, 167, 93, 0.08);
+  color: #ffa75d;
+}
+
+.historial-observaciones {
+  max-width: 240px;
+
+  color: #aebbd6 !important;
+  line-height: 1.5;
+}
+
+.historial-vacio {
+  min-height: 300px;
+
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 11px;
+
+  padding: 30px;
+
+  color: #94a4c5;
+  text-align: center;
+}
+
+.historial-vacio strong {
+  color: #e5ebf9;
+}
+
+.historial-vacio p {
+  max-width: 370px;
+  margin: 0;
+
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
+
+/* Ajustes responsive del historial. */
+@media (max-width: 1450px) {
+  .historial-filtros {
+    grid-template-columns:
+      repeat(3, minmax(0, 1fr));
+  }
+
+  .historial-filtro--busqueda {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 1100px) {
+  .historial-estadisticas {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+  .historial-graficos {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 800px) {
+  .historial-hero,
+  .historial-panel-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .historial-header-acciones {
+    width: 100%;
+  }
+
+  .historial-header-acciones button {
+    flex: 1;
+  }
+
+  .historial-filtros {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+  .historial-filtro--busqueda {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 580px) {
+  .historial-hero {
+    padding: 22px;
+  }
+
+  .historial-hero h2 {
+    font-size: 1.55rem;
+  }
+
+  .historial-chip {
+    white-space: normal;
+  }
+
+  .historial-estadisticas,
+  .historial-filtros {
+    grid-template-columns: 1fr;
+  }
+
+  .historial-filtro--busqueda {
+    grid-column: auto;
+  }
+
+  .historial-header-acciones {
+    flex-direction: column;
+  }
+
+  .historial-grafico-panel {
+    padding: 19px;
+  }
+
+  .historial-grafico-contenedor {
+    height: 250px;
+  }
+}

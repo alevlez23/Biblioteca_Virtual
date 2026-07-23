@@ -1,0 +1,364 @@
+/*
+ * Última capa de correcciones visuales del login y del panel. Se utiliza para
+ * ajustar alturas, espacios y tamaños sin modificar los componentes React.
+ */
+
+/*
+ * verificciones finales
+ *
+ * 1. Unifica la distancia entre el título superior
+ *    y el primer panel de cada módulo.
+ * 2. Unifica los espacios entre recuadros.
+ * 3. Compacta el login para que entre completo
+ *    en pantallas de portátil con zoom al 100 %.
+ */
+
+/* =========================================
+   ESPACIADO UNIFORME DEL DASHBOARD
+   ========================================= */
+
+.topbar {
+  margin-bottom: 18px !important;
+}
+
+/*
+ * Los módulos deben comenzar inmediatamente
+ * después del espacio definido por .topbar.
+ */
+.dashboard-content > .welcome-card,
+.dashboard-content > .usuarios-modulo,
+.dashboard-content > .libros-modulo,
+.dashboard-content > .prestamos-module,
+.dashboard-content > .historial-modulo {
+  margin-top: 0 !important;
+}
+
+/*
+ * Usuarios y Libros tenían un margen superior
+ * adicional aplicado directamente a welcome-card.
+ */
+.usuarios-modulo .welcome-card,
+.libros-modulo .welcome-card {
+  margin-top: 0 !important;
+}
+
+/*
+ * Préstamos e Historial recibieron posteriormente
+ * otro margen superior. También se elimina.
+ */
+.prestamos-module,
+.historial-modulo {
+  margin-top: 0 !important;
+}
+
+/*
+ * Separación uniforme entre las secciones
+ * internas de cada módulo.
+ */
+.usuarios-modulo,
+.libros-modulo,
+.prestamos-module,
+.historial-modulo {
+  gap: 18px !important;
+}
+
+.stats,
+.usuarios-resumen,
+.libros-resumen,
+.prestamos-stats,
+.historial-estadisticas {
+  gap: 16px !important;
+}
+
+.usuarios-contenido,
+.libros-contenido,
+.prestamos-grid,
+.historial-graficos {
+  gap: 18px !important;
+}
+
+/* =========================================
+   ALTURA Y DENSIDAD DEL LOGIN
+   ========================================= */
+
+.login-page {
+  min-height: 100dvh !important;
+
+  display: grid !important;
+  place-items: center !important;
+
+  padding: 14px 18px !important;
+
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+}
+
+.login-container {
+  width: min(470px, 100%) !important;
+  min-height: 0 !important;
+
+  max-height: calc(100dvh - 28px);
+
+  grid-template-columns: 1fr !important;
+
+  border-radius: 24px !important;
+
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+}
+
+/* Encabezado con logo y nombre */
+
+.presentation {
+  min-height: 0 !important;
+
+  padding:
+    20px 30px
+    2px !important;
+}
+
+.presentation .brand {
+  justify-content: center !important;
+  gap: 13px !important;
+}
+
+.presentation .brand-logo {
+  width: 50px !important;
+  height: 50px !important;
+
+  border-radius: 14px !important;
+
+  font-size: 0.95rem !important;
+}
+
+.presentation .brand > div:last-child span {
+  font-size: 0.65rem !important;
+}
+
+.presentation .brand h1 {
+  margin-top: 2px !important;
+  font-size: 1.2rem !important;
+}
+
+/*
+ * Se siguen ocultando los textos descriptivos
+ * y las características de la portada anterior.
+ */
+.presentation-content,
+.feature-list,
+.presentation > footer {
+  display: none !important;
+}
+
+/* Contenido principal del formulario */
+
+.login-card {
+  min-height: 0 !important;
+}
+
+.login-content {
+  width: 100% !important;
+  max-width: none !important;
+
+  padding:
+    14px 34px
+    24px !important;
+}
+
+.login-content > .avatar {
+  width: 68px !important;
+  height: 68px !important;
+
+  margin-bottom: 14px !important;
+}
+
+.login-heading {
+  margin-bottom: 18px !important;
+}
+
+.login-heading > span {
+  font-size: 0.68rem !important;
+}
+
+.login-heading h2 {
+  margin-top: 7px !important;
+  margin-bottom: 7px !important;
+
+  font-size: 1.55rem !important;
+}
+
+.login-heading p {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+
+  font-size: 0.8rem !important;
+}
+
+/* Campos */
+
+.login-form {
+  gap: 12px !important;
+}
+
+.login-form .field {
+  gap: 7px !important;
+}
+
+.login-form .field > span {
+  font-size: 0.75rem !important;
+}
+
+.login-form .input-container {
+  min-height: 46px !important;
+}
+
+.login-form .input-container input {
+  min-height: 42px !important;
+
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+
+  font-size: 0.9rem !important;
+}
+
+.login-form .input-container svg {
+  width: 18px !important;
+  height: 18px !important;
+}
+
+.password-button {
+  font-size: 0.72rem !important;
+}
+
+/* Mantener sesión y acceso seguro */
+
+.login-options {
+  min-height: 28px !important;
+  margin-top: 0 !important;
+}
+
+.remember,
+.secure-text {
+  font-size: 0.72rem !important;
+}
+
+.remember .checkmark {
+  width: 19px !important;
+  height: 19px !important;
+}
+
+/* Botón */
+
+.login-button {
+  min-height: 48px !important;
+  margin-top: 0 !important;
+
+  font-size: 0.9rem !important;
+}
+
+/* Mensaje inferior */
+
+.security-message {
+  margin-top: 13px !important;
+  margin-bottom: 0 !important;
+
+  font-size: 0.68rem !important;
+}
+
+/* =========================================
+   PORTÁTILES CON POCA ALTURA
+   ========================================= */
+
+/* Adaptaciones para resoluciones menores. */
+@media (max-height: 760px) {
+  .login-page {
+    padding-top: 8px !important;
+    padding-bottom: 8px !important;
+  }
+
+  .login-container {
+    max-height: calc(100dvh - 16px);
+  }
+
+  .presentation {
+    padding:
+      14px 26px
+      0 !important;
+  }
+
+  .presentation .brand-logo {
+    width: 45px !important;
+    height: 45px !important;
+  }
+
+  .login-content {
+    padding:
+      10px 30px
+      18px !important;
+  }
+
+  .login-content > .avatar {
+    width: 60px !important;
+    height: 60px !important;
+
+    margin-bottom: 10px !important;
+  }
+
+  .login-heading {
+    margin-bottom: 13px !important;
+  }
+
+  .login-heading h2 {
+    font-size: 1.4rem !important;
+  }
+
+  .login-form {
+    gap: 9px !important;
+  }
+
+  .login-form .input-container {
+    min-height: 43px !important;
+  }
+
+  .login-button {
+    min-height: 45px !important;
+  }
+
+  .security-message {
+    margin-top: 9px !important;
+  }
+}
+
+/* =========================================
+   TELÉFONOS Y PANTALLAS ESTRECHAS
+   ========================================= */
+
+@media (max-width: 560px) {
+  .login-page {
+    padding:
+      10px 12px !important;
+  }
+
+  .login-container {
+    width: 100% !important;
+    border-radius: 20px !important;
+  }
+
+  .presentation {
+    padding:
+      18px 20px
+      0 !important;
+  }
+
+  .login-content {
+    padding:
+      14px 22px
+      24px !important;
+  }
+
+  .login-options {
+    align-items: flex-start !important;
+    flex-direction: column !important;
+    gap: 8px !important;
+  }
+}

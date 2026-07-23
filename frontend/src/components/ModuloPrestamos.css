@@ -1,0 +1,471 @@
+/*
+ * Apariencia del módulo de préstamos: resumen, formulario, filtros, tabla,
+ * estados de movimiento y botones de devolución.
+ */
+
+.prestamos-module {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Cabecera informativa del servicio. */
+.prestamos-hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  padding: 28px 30px;
+  border: 1px solid rgba(80, 151, 255, 0.18);
+  border-radius: 24px;
+  background: linear-gradient(
+    135deg,
+    rgba(8, 18, 61, 0.96),
+    rgba(8, 16, 48, 0.9)
+  );
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
+}
+
+.prestamos-kicker,
+.card-kicker {
+  display: inline-block;
+  margin-bottom: 10px;
+  font-size: 0.76rem;
+  letter-spacing: 0.14em;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #58e6ff;
+}
+
+.prestamos-hero h2 {
+  margin: 0 0 10px;
+  font-size: 2rem;
+  line-height: 1.1;
+  color: #f3f7ff;
+}
+
+.prestamos-hero p {
+  margin: 0;
+  max-width: 720px;
+  color: #b1bdd8;
+  line-height: 1.6;
+}
+
+.prestamos-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  white-space: nowrap;
+  padding: 12px 18px;
+  border-radius: 999px;
+  border: 1px solid rgba(88, 230, 255, 0.24);
+  background: rgba(11, 26, 57, 0.9);
+  color: #75ffb7;
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+
+/* Resumen de movimientos por estado. */
+.prestamos-stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.prestamo-stat-card {
+  padding: 22px 20px;
+  border-radius: 20px;
+  border: 1px solid rgba(80, 151, 255, 0.16);
+  background: rgba(8, 18, 54, 0.85);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.18);
+}
+
+.prestamo-stat-card span {
+  display: block;
+  margin-bottom: 12px;
+  color: #8fa5ce;
+  font-size: 0.92rem;
+}
+
+.prestamo-stat-card strong {
+  display: block;
+  font-size: 2rem;
+  line-height: 1;
+  color: #ffffff;
+  margin-bottom: 8px;
+}
+
+.prestamo-stat-card small {
+  color: #7bdfff;
+  font-size: 0.82rem;
+}
+
+/* Mensajes generados por las operaciones del formulario. */
+.prestamos-alertas {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.alerta {
+  padding: 14px 16px;
+  border-radius: 14px;
+  font-size: 0.94rem;
+  font-weight: 500;
+}
+
+.alerta.ok {
+  color: #a8ffd5;
+  background: rgba(28, 83, 56, 0.32);
+  border: 1px solid rgba(92, 232, 167, 0.22);
+}
+
+.alerta.error {
+  color: #ffd2d7;
+  background: rgba(115, 33, 49, 0.32);
+  border: 1px solid rgba(255, 107, 129, 0.24);
+}
+
+/* Distribución entre el formulario y el historial de préstamos. */
+.prestamos-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1.4fr;
+  gap: 24px;
+  align-items: start;
+}
+
+.prestamos-card {
+  padding: 24px;
+  border-radius: 24px;
+  border: 1px solid rgba(80, 151, 255, 0.16);
+  background: rgba(6, 14, 44, 0.88);
+  box-shadow: 0 18px 38px rgba(0, 0, 0, 0.22);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 18px;
+  margin-bottom: 22px;
+}
+
+.card-header h3 {
+  margin: 0;
+  color: #f5f8ff;
+  font-size: 1.6rem;
+}
+
+/* Formulario de selección de usuario, libro, fecha y observaciones. */
+.prestamo-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.field span {
+  color: #d8e4ff;
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  padding: 13px 14px;
+  border-radius: 14px;
+  border: 1px solid rgba(101, 139, 214, 0.24);
+  background: rgba(9, 20, 60, 0.95);
+  color: #f3f7ff;
+  outline: none;
+  font-size: 0.95rem;
+  transition: 0.2s ease;
+}
+
+.field input::placeholder,
+.field textarea::placeholder {
+  color: #7f93bb;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  border-color: rgba(91, 226, 255, 0.72);
+  box-shadow: 0 0 0 3px rgba(91, 226, 255, 0.12);
+}
+
+.field textarea {
+  resize: vertical;
+  min-height: 110px;
+}
+
+.field-full {
+  grid-column: 1 / -1;
+}
+
+.field-counter {
+  align-self: flex-end;
+  color: #89a0cb;
+  font-size: 0.78rem;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn-principal,
+.btn-secundario,
+.btn-tabla {
+  border: none;
+  cursor: pointer;
+  transition: 0.2s ease;
+  font-weight: 700;
+}
+
+.btn-principal {
+  padding: 14px 22px;
+  border-radius: 14px;
+  background: linear-gradient(90deg, #54d7f1, #8b78ff);
+  color: #071222;
+  min-width: 210px;
+  box-shadow: 0 12px 26px rgba(109, 143, 255, 0.26);
+}
+
+.btn-principal:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.03);
+}
+
+.btn-principal:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.btn-secundario {
+  padding: 11px 16px;
+  border-radius: 12px;
+  background: transparent;
+  color: #d9e7ff;
+  border: 1px solid rgba(114, 150, 214, 0.32);
+}
+
+.btn-secundario:hover {
+  background: rgba(80, 109, 192, 0.12);
+}
+
+.prestamos-filtros {
+  display: grid;
+  grid-template-columns: 1.5fr 0.7fr;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.prestamos-filtros input,
+.prestamos-filtros select {
+  width: 100%;
+  padding: 13px 14px;
+  border-radius: 14px;
+  border: 1px solid rgba(101, 139, 214, 0.24);
+  background: rgba(9, 20, 60, 0.95);
+  color: #f3f7ff;
+  outline: none;
+  font-size: 0.95rem;
+}
+
+.prestamos-filtros input::placeholder {
+  color: #7f93bb;
+}
+
+/* Tabla de movimientos y botón de devolución. */
+.tabla-contenedor {
+  overflow-x: auto;
+  border-radius: 18px;
+  border: 1px solid rgba(88, 120, 209, 0.18);
+  background: rgba(6, 14, 38, 0.72);
+}
+
+.prestamos-tabla {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 980px;
+}
+
+.prestamos-tabla thead th {
+  text-align: left;
+  padding: 16px 14px;
+  font-size: 0.84rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #7feaff;
+  background: rgba(11, 22, 66, 0.94);
+  border-bottom: 1px solid rgba(95, 124, 212, 0.18);
+}
+
+.prestamos-tabla tbody td {
+  padding: 16px 14px;
+  border-bottom: 1px solid rgba(86, 111, 180, 0.12);
+  vertical-align: top;
+  color: #eef4ff;
+  font-size: 0.94rem;
+}
+
+.prestamos-tabla tbody tr:hover {
+  background: rgba(90, 118, 212, 0.06);
+}
+
+.col-id {
+  font-weight: 700;
+  color: #7ce4ff;
+}
+
+.tabla-principal {
+  font-weight: 700;
+  color: #f4f8ff;
+  margin-bottom: 5px;
+}
+
+.tabla-secundaria {
+  color: #8fa3c9;
+  font-size: 0.84rem;
+  line-height: 1.4;
+}
+
+.tabla-observacion {
+  max-width: 220px;
+  line-height: 1.5;
+  color: #d7e0f5;
+}
+
+.estado-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 12px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.estado-badge.activo {
+  color: #8effc8;
+  background: rgba(46, 108, 76, 0.28);
+  border: 1px solid rgba(114, 250, 184, 0.18);
+}
+
+.estado-badge.devuelto {
+  color: #8fd8ff;
+  background: rgba(42, 82, 129, 0.28);
+  border: 1px solid rgba(97, 201, 255, 0.18);
+}
+
+.estado-badge.vencido {
+  color: #ffbf8b;
+  background: rgba(122, 73, 27, 0.28);
+  border: 1px solid rgba(255, 168, 94, 0.2);
+}
+
+.btn-tabla {
+  padding: 10px 14px;
+  border-radius: 12px;
+  background: rgba(91, 226, 255, 0.12);
+  color: #87eeff;
+  border: 1px solid rgba(91, 226, 255, 0.22);
+  white-space: nowrap;
+}
+
+.btn-tabla:hover {
+  background: rgba(91, 226, 255, 0.18);
+}
+
+.btn-tabla:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.texto-finalizado {
+  color: #87a0ca;
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.estado-vacio {
+  padding: 24px;
+  border-radius: 16px;
+  border: 1px dashed rgba(120, 149, 224, 0.18);
+  background: rgba(9, 18, 52, 0.55);
+  color: #a7b7d9;
+  text-align: center;
+}
+
+.tabla-footer {
+  margin-top: 14px;
+  color: #8ea2c9;
+  font-size: 0.88rem;
+}
+
+/* Ajustes responsive del módulo de préstamos. */
+@media (max-width: 1280px) {
+  .prestamos-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 980px) {
+  .prestamos-hero {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .prestamos-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .form-grid,
+  .prestamos-filtros {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .prestamos-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .prestamos-card,
+  .prestamos-hero {
+    padding: 20px;
+    border-radius: 20px;
+  }
+
+  .card-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .form-actions {
+    justify-content: stretch;
+  }
+
+  .btn-principal {
+    width: 100%;
+  }
+
+  .prestamos-hero h2 {
+    font-size: 1.6rem;
+  }
+}

@@ -1,0 +1,33 @@
+# Variables privadas y claves de cada entorno
+.env
+.env.*
+!.env.example
+
+# Dependencias instaladas localmente
+node_modules/
+vendor/
+
+# Archivos generados por compilación
+frontend/dist/
+dist/
+build/
+
+# Datos temporales y registros de CodeIgniter
+**/writable/cache/*
+**/writable/logs/*
+**/writable/session/*
+**/writable/uploads/*
+!**/writable/**/.gitkeep
+
+# Historial y configuración de editores
+.git/
+.vscode/
+.idea/
+*.code-workspace
+
+# Archivos temporales del sistema operativo
+Thumbs.db
+Desktop.ini
+.DS_Store
+*.tmp
+*.log
