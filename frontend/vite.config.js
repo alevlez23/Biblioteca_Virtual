@@ -1,12 +1,19 @@
-/**
- * Configuración del servidor y compilador Vite.
- * El plugin de React transforma JSX y habilita la actualización rápida durante
- * el desarrollo sin recargar toda la página.
- */
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
 
-// defineConfig ofrece autocompletado y valida la estructura de configuración.
+/*
+ * Configuración principal de Vite.
+ *
+ * La propiedad base indica que la aplicación será publicada
+ * dentro del repositorio Biblioteca-Virtual en GitHub Pages.
+ *
+ * Sin esta configuración, Vite intentaría cargar los archivos
+ * desde la raíz del dominio y los estilos o scripts no aparecerían.
+ */
 export default defineConfig({
-  plugins: [react()],
-})
+  plugins: [
+    react(),
+  ],
+
+  base: "/Biblioteca-Virtual/",
+});
