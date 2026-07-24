@@ -190,4 +190,4 @@ No se deben subir:
 
 ## Autora
 
-**Alejandra Vélez — desarrollo integral del frontend, backend, bases de datos, integración, pruebas y documentación.**
+**Alejandra Velez — desarrollo integral del frontend, backend, bases de datos, integración, pruebas y documentación.**
