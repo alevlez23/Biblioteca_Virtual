@@ -31,3 +31,4 @@ Desktop.ini
 .DS_Store
 *.tmp
 *.log
+composer.phar
