@@ -2,7 +2,7 @@
 
 ## Descripción del proyecto
 
-Este proyecto corresponde a la Actividad #6 de la Unidad 3. Desarrollé una aplicación web para administrar una biblioteca virtual mediante servicios independientes que se comunican con APIs REST.
+Este proyecto corresponde a la Actividad #6 de la Unidad 4. Desarrollé una aplicación web para administrar una biblioteca virtual mediante servicios independientes que se comunican con APIs REST.
 
 La solución incluye un frontend en React y cuatro servicios de backend en CodeIgniter 4:
 
