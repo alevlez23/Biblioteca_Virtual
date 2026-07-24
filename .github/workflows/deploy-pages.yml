@@ -1,23 +1,21 @@
 name: Publicar frontend en GitHub Pages
 
-# El despliegue se ejecuta automáticamente
-# cuando se envían cambios a la rama main.
+# Ejecuta la publicación cuando se suben cambios a main.
 on:
   push:
     branches:
       - main
 
-  # También permite ejecutarlo manualmente
-  # desde la sección Actions de GitHub.
+  # Permite iniciar el flujo manualmente desde GitHub.
   workflow_dispatch:
 
-# Permisos necesarios para publicar en GitHub Pages.
+# Permisos necesarios para publicar GitHub Pages.
 permissions:
   contents: read
   pages: write
   id-token: write
 
-# Evita que dos despliegues se ejecuten al mismo tiempo.
+# Evita publicaciones simultáneas.
 concurrency:
   group: github-pages
   cancel-in-progress: true
@@ -28,36 +26,33 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Descarga el código del repositorio.
+      # Descarga el contenido del repositorio.
       - name: Descargar repositorio
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
-      # Instala Node.js para ejecutar Vite.
+      # Prepara Node.js para instalar y compilar React.
       - name: Configurar Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version: 22
-          cache: npm
-          cache-dependency-path: frontend/package-lock.json
 
-      # Instala exactamente las dependencias
-      # registradas en package-lock.json.
+      # Instala las dependencias dentro de frontend.
+      # Se utiliza npm install porque puede sincronizar
+      # package.json con package-lock.json.
       - name: Instalar dependencias
         working-directory: ./frontend
-        run: npm ci
+        run: npm install
 
-      # Genera la carpeta frontend/dist.
+      # Ejecuta Vite y genera frontend/dist.
       - name: Compilar aplicación React
         working-directory: ./frontend
         run: npm run build
 
-      # Prepara GitHub Pages para recibir
-      # los archivos compilados.
+      # Configura los datos necesarios para GitHub Pages.
       - name: Configurar GitHub Pages
         uses: actions/configure-pages@v5
 
-      # Guarda el contenido de dist como
-      # artefacto que será publicado.
+      # Guarda la carpeta compilada como artefacto.
       - name: Preparar archivos de publicación
         uses: actions/upload-pages-artifact@v3
         with:
@@ -65,16 +60,15 @@ jobs:
 
   deploy:
     name: Publicar aplicación
+    runs-on: ubuntu-latest
+    needs: build
+
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
 
-    runs-on: ubuntu-latest
-    needs: build
-
     steps:
-      # Publica el artefacto generado
-      # por el trabajo de compilación.
+      # Publica el artefacto generado en GitHub Pages.
       - name: Desplegar en GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
