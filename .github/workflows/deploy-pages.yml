@@ -12,6 +12,7 @@ on:
 # Permisos necesarios para publicar GitHub Pages.
 permissions:
   contents: read
+  actions: read
   pages: write
   id-token: write
 
