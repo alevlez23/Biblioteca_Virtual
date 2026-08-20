@@ -15,5 +15,5 @@ export default defineConfig({
     react(),
   ],
 
-  base: "/Biblioteca-Virtual/",
+  base: "/Biblioteca_Virtual/",
 });
