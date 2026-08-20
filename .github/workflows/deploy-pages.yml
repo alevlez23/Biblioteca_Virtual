@@ -50,11 +50,11 @@ jobs:
 
       # Configura los datos necesarios para GitHub Pages.
       - name: Configurar GitHub Pages
-        uses: actions/configure-pages@v5
+        uses: actions/configure-pages@v6
 
       # Guarda la carpeta compilada como artefacto.
       - name: Preparar archivos de publicación
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v5
         with:
           path: ./frontend/dist
 
@@ -71,4 +71,4 @@ jobs:
       # Publica el artefacto generado en GitHub Pages.
       - name: Desplegar en GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
