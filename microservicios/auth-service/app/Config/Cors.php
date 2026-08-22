@@ -21,9 +21,11 @@ class Cors extends BaseConfig
     public array $default = [
         // Dominios desde los que React puede consumir esta API.
         'allowedOrigins' => [
-            'http://localhost:5173',
-            'http://127.0.0.1:5173',
-        ],
+    'http://localhost:5173',
+    'http://127.0.0.1:5173',
+    'https://alevlez23.github.io',
+    'https://biblioteca-virtual-9rmw.onrender.com',
+],
 
         'allowedOriginsPatterns' => [],
 
